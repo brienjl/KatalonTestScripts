@@ -1,0 +1,26 @@
+//Select "Information Technology" from the Division Drop Down Filter
+
+//Click the Button to Activate the Drop Down Selection for "Division"
+CustomKeywords.'helpMe.helpers.clickUsingJS'(findTestObject('Object Repository/Pages/13.2SpeedyPayMaker/13.3SearchRecords/Division/btnDivisionDrowDown'), 1)
+WebUI.delay(1)
+
+//In Angular Materials, a general 'cdk-overlay' is generated -- we'll use it as the xpath
+//select = the keywords we want to find in the drop down menu
+typeXpath = '//*[@id="cdk-overlay-0"]/div/mat-option'
+select = 'INFORMATION TECHNOLOGY'
+String xpath = CustomKeywords.'helpMe.helpers.getXpathOfDropDown'(typeXpath, select, 1)
+  
+//Create a new object based on the xpath we created from our CustomKeyword
+TestObject divisionIT = new TestObject('divisionIT').addProperty('xpath', ConditionType.EQUALS, xpath, true)
+CustomKeywords.'helpMe.helpers.clickUsingJS'(divisionIT, 1)
+
+WebUI.delay(1)
+
+//get the text to make sure we selected the correct item. Should be "INFORMATION TECHNOLOGY"
+uiDivisionFilterXpath = '//*[@id="mat-select-4"]/div/div[1]/span/span'
+TestObject divisionFilterText = new TestObject('divisionFilterText').addProperty('xpath', ConditionType.EQUALS, uiDivisionFilterXpath, true)
+divisionFilter = WebUI.getText(divisionFilterText)
+
+WebUI.delay(1)
+WebUI.takeScreenshot()
+assert divisionFilter == 'INFORMATION TECHNOLOGY'
