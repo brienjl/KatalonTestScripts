@@ -16,7 +16,7 @@ CustomKeywords.'helpMe.helpers.clickUsingJS'(divisionIT, 1)
 
 WebUI.delay(1)
 
-//get the text to make sure we selected the correct item. Should be "INFORMATION TECHNOLOGY"
+//Get the text to make sure we selected the correct item. Should be "INFORMATION TECHNOLOGY"
 uiDivisionFilterXpath = '//*[@id="mat-select-4"]/div/div[1]/span/span'
 TestObject divisionFilterText = new TestObject('divisionFilterText').addProperty('xpath', ConditionType.EQUALS, uiDivisionFilterXpath, true)
 divisionFilter = WebUI.getText(divisionFilterText)

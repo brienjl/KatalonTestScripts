@@ -68,7 +68,7 @@ public class helpers {
 
 
 	@Keyword
-    //count the number of rows of a TestObject (send it an HTML table or repeatable pattern of <div> tags)
+    //Count the number of rows of a TestObject (send it an HTML table or repeatable pattern of <div> tags)
 	def countReturnedSearchResults(TestObject to, int timeout){
 		WebDriver driver = DriverFactory.getWebDriver()
 		List<WebElement> rows = driver.findElements(to, timeout)
